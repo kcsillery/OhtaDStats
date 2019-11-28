@@ -11,7 +11,7 @@ Contact: katalin.csillery@wsl.ch
 
 - Modified the calculation of the D statistics providing a 36% speed improvement
 - Added the option of using phased data, which can be useful for emprirical data sets, where the phase is knowkn, or for simulated data, or for those, who wish to use a more performant algorithm to estimate phase (such as Matthew Stephens's Phase or Beagle) instead of Burrows composite measure.
-- these improvements are implemented in a new function called dstat.ph, which has a new argument phase. Use phase=T for phased data and phase=F for unphased data. This latter will give identical results to the R package, but more quickly.
+- these improvements are implemented in a new function called dstat.ph, which has a new argument phased. Use phased=T for phased data and phased=F for unphased data. This latter will give identical results to the R package, but more quickly.
 - phased data has to be coded as 0 (homAA), 1 (hetAB), 2 (hetBA), 3 (homBB), while unphased data as 0 (homAA), 1 (hetAB or hetBA), 2 (homBB)
 
 
@@ -38,13 +38,19 @@ dstat(index = c(28,41), data_set = miyashita_langley_data, tot_maf = 0.05, pop_m
 
 The two loci to be evaluated are passed to the index argument as a two element vector.
 
+To use the modified function, simply type:
+
+``` r
+dstat.ph(index = c(28,41), data_set = miyashita_langley_data, phased=F, tot_maf = 0.05, pop_maf = 0.01)
+```
+
 Computation of Ohta's D statistics for a small dataset.
 -------------------------------------------------------
 
-If you have a small dataset and would like to compute Ohta's D statistics for each possible pair of loci, use the dwrapper function.
+If you have a small dataset and would like to compute Ohta's D statistics for each possible pair of loci, use the dwrapper function. Note that in this forked version the dwrapper function uses the dstat.ph function, thus you have to specify the argumemt phased. By default, phased=F.
 
 ``` r
-dwrap_results <- dwrapper(data_set = miyashita_langley_data, tot_maf = 0.00, pop_maf = 0.00)
+dwrap_results <- dwrapper(data_set = miyashita_langley_data, phased=F, tot_maf = 0.00, pop_maf = 0.00)
 summary(dwrap_results)
 ```
 
