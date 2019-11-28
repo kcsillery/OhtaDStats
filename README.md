@@ -12,7 +12,7 @@ Contact: katalin.csillery@wsl.ch
 - Modified the calculation of the D statistics providing a 36% speed improvement
 - Added the option of using phased data, which can be useful for emprirical data sets, where the phase is knowkn, or for simulated data, or for those, who wish to use a more performant algorithm to estimate phase (such as Matthew Stephens's Phase or Beagle) instead of Burrows composite measure.
 - these improvements are implemented in a new function called dstat.ph, which has a new argument phase. Use phase=T for phased data and phase=F for unphased data. This latter will give identical results to the R package, but more quickly.
-- phased data has to be provided as 0 (homAA), 1 (hetAB), 2 (hetBA), 3 (homBB)
+- phased data has to be coded as 0 (homAA), 1 (hetAB), 2 (hetBA), 3 (homBB), while unphased data as 0 (homAA), 1 (hetAB or hetBA), 2 (homBB)
 
 
 Setup and Data Import
