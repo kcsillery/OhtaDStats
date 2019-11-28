@@ -1,4 +1,4 @@
-## by Katalin Csillery, kati.csillery@gmail.com
+## Katalin Csillery, kati.csillery@gmail.com
 ## modified after OhtaDStats, https://github.com/pfpetrowski/OhtaDStats
 
 dstat.ph <- function(index, data, phased, tot_maf = 0, pop_maf = 0){
